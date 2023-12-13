@@ -33,8 +33,8 @@ DHT dht(4, DHT11); // change your pin DHT
 // inialisasi servo
 Servo servo1;
 
-const int pinrain = 26;
-const int pinlight = 27;
+const int pinrain = 26; // change your pin,because have issues gpio2
+const int pinlight = 27; // change your pin,because have issues gpio2
 const int buttonUpPin = 14;   // button to move the roof  +10 degrees
 const int buttonDownPin = 13; // button to move the roof -10 degrees
 const int modeButtonPin = 12; // button to change your mode
@@ -129,20 +129,6 @@ void loop() {
     servo1.write(servo1.read() - 10);
     delay(300); // Delay untuk menghindari bouncing tombol
 }
-
-  Serial.print("Mode: ");
-  Serial.println(mode == 0 ? "Otomatis" : "Manual");
-  
-  Serial.print("rain: ");
-  Serial.print(rain);
-  Serial.print(", light: ");
-  Serial.println(light);
-  Serial.println();
-  Serial.print("humidity: ");
-  Serial.print(humidity);
-  Serial.print("%, Suhu: ");
-  Serial.print(temperature);
-  Serial.println("°C");
 
   // Mode otomatis
  if (mode == 0) {
